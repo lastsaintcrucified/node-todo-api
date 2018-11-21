@@ -14,13 +14,18 @@ app.post('/todos', (req, res) =>{
   var todo = new Todo({
     text: req.body.text
   });
+
   todo.save().then((doc) =>{
     res.send(doc);
-  }, (e) =>{
-    res.status(400).send(e);
+  },(e) =>{
+    res.send(e);
   })
-})
+});
 
-app.listen(3000, () =>{
-  console.log('started on port 3000');
-})
+
+app.listen(3000,() =>{
+  console.log('Uploaded....');
+});
+
+
+module.exports = {app};
