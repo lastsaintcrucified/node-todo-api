@@ -60,7 +60,7 @@ describe('POST/todos',() =>{
   })
 });
 
-describe('GET/todos',() =>{
+describe('GET/todos', () =>{
   it('should return todos',(done) =>{
 
     request(app)
@@ -70,6 +70,6 @@ describe('GET/todos',() =>{
       expect(res.body.todos.length).toBe(3);
     })
     .end(done);
-    
+
   })
 });
