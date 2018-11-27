@@ -1,15 +1,17 @@
 const expect = require('expect');
 const request = require('supertest');
+const _ = require('lodash');
 const {ObjectID} = require('mongodb');
-const {app} = require('./../server.js');
-const {Todo} = require('./../models/todo.js');
-
+var {app} = require('./../server.js');
+var {Todo} = require('./../models/todo.js');
 const todos = [{
   _id: new ObjectID,
   text: 'Some to do'
 },{
   _id: new ObjectID,
-  text:'Another to do'
+  text:'Another to do',
+  completed: true,
+  completedAt: 3333
 },{
   _id: new ObjectID,
   text:'What to do'
