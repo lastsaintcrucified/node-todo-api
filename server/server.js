@@ -111,10 +111,36 @@ app.post('/users',(req,res) =>{
   })
 });
 
-app.listen(port,() =>{
-  console.log(`Uploaded on ${port}....`);
+
+app.get('/users/me',(req,res) =>{
+  var token = req.header('x-auth');
+  User.findByToken(token).then((user) =>{
+    if(!user){
+      return Promise.reject();
+    }
+
+    res.send(user);
+  }).catch((e) =>{
+    res.status(401).send();
+  });
 });
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+app.listen(port,() =>{
+  console.log(`Uploaded on ${port}....`);
+});
 
 module.exports = {app};
